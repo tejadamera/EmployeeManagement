@@ -2,6 +2,7 @@
 using EmployeeManagement.DTOs;
 using EmployeeManagement.Models;
 using EmployeeManagement.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -13,6 +14,7 @@ namespace EmployeeManagement.Controllers
     //<summary>
     //Manages employee data
     //</summary>
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class EmployeeController : ControllerBase
@@ -60,6 +62,7 @@ namespace EmployeeManagement.Controllers
             return updated ? NoContent() : NotFound();
         }
 
+        [Authorize(Roles ="Admin")]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteEmployee(int id)
         {

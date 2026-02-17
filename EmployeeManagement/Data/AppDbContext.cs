@@ -11,5 +11,6 @@ namespace EmployeeManagement.Data
         }
 
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<User> Users => Set<User>();
     }
 }
