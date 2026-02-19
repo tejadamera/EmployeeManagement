@@ -32,6 +32,7 @@ namespace EmployeeManagement.Controllers
                 issuer: _configuration["Jwt:Issuer"],
                 audience: _configuration["Jwt:Audience"],
                 claims: claims,
+                expires:DateTime.Now.AddMinutes(60),
                 signingCredentials: new SigningCredentials(key, SecurityAlgorithms.HmacSha256)
             );
             return Ok(new {token = new JwtSecurityTokenHandler().WriteToken(token)});
