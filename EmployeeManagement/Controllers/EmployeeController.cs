@@ -14,7 +14,7 @@ namespace EmployeeManagement.Controllers
     //<summary>
     //Manages employee data
     //</summary>
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class EmployeeController : ControllerBase
